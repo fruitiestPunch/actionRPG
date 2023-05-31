@@ -20,7 +20,7 @@ var state = MOVE
 func _ready():
 	animation_tree.active = true
 
-func _physics_process(_delta):
+func _process(_delta):
 	if(Input.is_action_pressed("ui_cancel")):
 		get_tree().quit()
 	match state:
@@ -53,7 +53,8 @@ func move_state():
 func attack_state():
 	animation_state.travel("Attack_BlendSpace")
 	# makes the player slide a little bit while attacking, if they were moving before
-	velocity = velocity.move_toward(Vector2.ZERO, FRICTION/5)
+# warning-ignore:integer_division
+	velocity = velocity.move_toward(Vector2.ZERO, FRICTION/4)
 	velocity = move_and_slide(velocity)
 
 func roll_state():
