@@ -31,6 +31,6 @@ func instance_grass_effect():
 	get_parent().add_child(grass_effect_instance)
 	grass_effect_instance.position = self.position
 
-func _on_Hurtbox_area_entered(area):
+func _on_Hurtbox_area_entered(_area):
 	instance_grass_effect()
 	queue_free()
