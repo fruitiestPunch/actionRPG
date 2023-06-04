@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var animation_player = $AnimationPlayer
 onready var animation_tree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
+onready var sword_hitbox = $Sword_Hitbox_Position2D/Sword_Hitbox
 
 const ACCELERATION = 20
 const MAX_SPEED = 150
@@ -21,6 +22,7 @@ var roll_vector = Vector2.LEFT
 
 func _ready():
 	animation_tree.active = true
+	sword_hitbox.knockback_vector = roll_vector
 
 func _physics_process(_delta):
 	if(Input.is_action_pressed("ui_cancel")):
@@ -40,6 +42,7 @@ func move_state():
 	if(input_vector != Vector2.ZERO):
 		input_vector = input_vector.normalized()
 		roll_vector = input_vector
+		sword_hitbox.knockback_vector = input_vector
 		animation_tree.set("parameters/Idle_BlendSpace/blend_position", input_vector)
 		animation_tree.set("parameters/Run_BlendSpace/blend_position", input_vector)
 		animation_tree.set("parameters/Attack_BlendSpace/blend_position", input_vector)
