@@ -5,10 +5,10 @@ onready var animation_tree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var sword_hitbox = $Sword_Hitbox_Position2D/Sword_Hitbox
 
-const ACCELERATION = 20
-const MAX_SPEED = 150
-const ROLL_SPEED = 190
-const FRICTION = 50
+export var ACCELERATION = 20
+export var MAX_SPEED = 150
+export var ROLL_SPEED = 190
+export var FRICTION = 50
 
 enum {
 	MOVE,
