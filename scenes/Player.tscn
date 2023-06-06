@@ -675,9 +675,9 @@ anims/Run_Up_Animation = SubResource( 10 )
 tree_root = SubResource( 16 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 17 )
-parameters/Attack_BlendSpace/blend_position = Vector2( -0.316119, -0.0629723 )
+parameters/Attack_BlendSpace/blend_position = Vector2( 0, 0 )
 parameters/Idle_BlendSpace/blend_position = Vector2( 0, 0 )
-parameters/Roll_BlendSpace/blend_position = Vector2( -0.101681, -0.370861 )
+parameters/Roll_BlendSpace/blend_position = Vector2( 0, 0 )
 parameters/Run_BlendSpace/blend_position = Vector2( 0, 0 )
 
 [node name="Sword_Hitbox_Position2D" type="Position2D" parent="."]

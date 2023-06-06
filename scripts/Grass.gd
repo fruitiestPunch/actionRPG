@@ -21,10 +21,11 @@ extends Node2D
 #		queue_free()
 
 
+# scenes are no real nodes
+# preload instead of load to not eat up all ram in every frame
+const grass_effect_scene = preload("res://scenes/Grass_Effect.tscn")
+
 func instance_grass_effect():
-	# scenes are no real nodes
-	# preload instead of load to not eat up all ram in every frame
-	var grass_effect_scene = preload("res://scenes/Grass_Effect.tscn")
 	# instances are real nodes, so I can pick and manipulate properties
 	var grass_effect_instance = grass_effect_scene.instance()
 	# gives access to target scene (here: ysort scene)

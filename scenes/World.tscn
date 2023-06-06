@@ -571,3 +571,9 @@ position = Vector2( 136, 160 )
 
 [node name="Bat_Enemy" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 96, 104 )
+
+[node name="Bat_Enemy2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 224, 112 )
+
+[node name="Bat_Enemy3" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 176, 136 )
