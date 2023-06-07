@@ -3,10 +3,12 @@ extends KinematicBody2D
 onready var stats = $Stats
 onready var player_detection_area = $Player_Detection_Area
 onready var animated_sprite = $AnimatedSprite
+onready var hurtbox = $Hurtbox
 
 export var ACCELERATION = 20
 export var MAX_SPEED = 100
 export var FRICTION = 50
+export var KNOCKBACK = 500
 
 # scenes are no real nodes
 # preload instead of load to not eat up all ram in every frame
@@ -52,7 +54,8 @@ func seek_player():
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
-	knockback = area.knockback_vector * 250
+	hurtbox.create_hit_effect()
+	knockback = area.knockback_vector * KNOCKBACK
 
 func _on_Stats_no_health():
 	queue_free()
