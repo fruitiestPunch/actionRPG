@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://scenes/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/textures/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Grass.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Bat_Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Health_UI_Control.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Tree.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -506,10 +508,7 @@ tile_data = PoolIntArray( -65534, 0, 0, -65533, 0, 5, -65532, 0, 196610, -65528,
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 56, 128 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 48, 64 )
 
 [node name="Bushes_Ysort" type="YSort" parent="YSort"]
 
@@ -523,7 +522,7 @@ position = Vector2( 200, 168 )
 position = Vector2( 136, 88 )
 
 [node name="Bush4" parent="YSort/Bushes_Ysort" instance=ExtResource( 1 )]
-position = Vector2( 280, 64 )
+position = Vector2( 280, 72 )
 
 [node name="Grass_Ysort" type="YSort" parent="YSort"]
 
@@ -569,6 +568,17 @@ position = Vector2( 0, 144 )
 [node name="Grass4" parent="YSort/Grass_Ysort" instance=ExtResource( 6 )]
 position = Vector2( 136, 160 )
 
+[node name="Trees_Ysort" type="YSort" parent="YSort"]
+
+[node name="Tree" parent="YSort/Trees_Ysort" instance=ExtResource( 9 )]
+position = Vector2( 80, 160 )
+
+[node name="Tree2" parent="YSort/Trees_Ysort" instance=ExtResource( 9 )]
+position = Vector2( 0, 72 )
+
+[node name="Tree3" parent="YSort/Trees_Ysort" instance=ExtResource( 9 )]
+position = Vector2( 280, 40 )
+
 [node name="Bat_Enemy" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 96, 104 )
 
@@ -577,3 +587,9 @@ position = Vector2( 224, 112 )
 
 [node name="Bat_Enemy3" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 176, 136 )
+
+[node name="Health_UI_Control" parent="." instance=ExtResource( 8 )]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 66.0
+margin_bottom = 15.0

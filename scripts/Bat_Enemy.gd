@@ -23,6 +23,10 @@ enum {
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 var state = CHASE
+var numOfFrames = 5
+
+func _ready():
+	animated_sprite.frame = randi() % numOfFrames
 
 func _physics_process(_delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION)

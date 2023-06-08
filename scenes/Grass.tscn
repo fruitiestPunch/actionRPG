@@ -9,6 +9,9 @@ extents = Vector2( 7, 7 )
 
 [node name="Grass" type="Node2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -17,7 +20,6 @@ offset = Vector2( -8, -8 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
-show_hitbox_effect = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 8, 8 )
