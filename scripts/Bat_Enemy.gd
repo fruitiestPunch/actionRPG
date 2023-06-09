@@ -4,6 +4,7 @@ onready var stats = $Stats
 onready var player_detection_area = $Player_Detection_Area
 onready var animated_sprite = $AnimatedSprite
 onready var hurtbox = $Hurtbox
+onready var soft_collisions = $Soft_Collision_Area2D
 
 export var ACCELERATION = 20
 export var MAX_SPEED = 100
@@ -49,7 +50,9 @@ func _physics_process(_delta):
 				# only quick fix
 				# TODO add more natural slow down
 				state = IDLE
-	animated_sprite.flip_h = velocity.x < 0
+			animated_sprite.flip_h = velocity.x < 0
+	if(soft_collisions.is_colliding()):
+		velocity += soft_collisions.get_push_vector() * 50
 	velocity = move_and_slide(velocity)
 
 func seek_player():

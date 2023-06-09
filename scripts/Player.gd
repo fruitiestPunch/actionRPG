@@ -71,6 +71,9 @@ func move_state():
 func roll_state():
 	animation_state.travel("Roll_BlendSpace")
 	velocity = roll_vector * ROLL_SPEED
+	# disable hurtbox while rolling
+	if(not hurtbox.invincible):
+		hurtbox.set_invincible(true)
 	move()
 	
 func attack_state():
@@ -89,6 +92,8 @@ func roll_animation_finished():
 	# else, velocity = 0
 	if(roll_vector != velocity.normalized()):
 		velocity *= .7
+	# re-enable hurtbox
+	hurtbox.set_invincible(false)
 	state = MOVE
 
 func attack_animation_finished():

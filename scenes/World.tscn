@@ -580,13 +580,16 @@ position = Vector2( 0, 72 )
 position = Vector2( 280, 40 )
 
 [node name="Bat_Enemy" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 96, 104 )
+position = Vector2( 44, 162 )
 
-[node name="Bat_Enemy2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 224, 112 )
+[node name="Bat_Enemy4" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 306, 59 )
+
+[node name="Bat_Enemy10" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 211, 137 )
 
 [node name="Bat_Enemy3" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 176, 136 )
+position = Vector2( 232, 134 )
 
 [node name="Health_UI_Control" parent="." instance=ExtResource( 8 )]
 margin_left = 6.0

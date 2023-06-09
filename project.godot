@@ -105,6 +105,7 @@ roll_action={
 2d_physics/layer_3="Player_Hurtbox_Layer"
 2d_physics/layer_4="Enemy_Hurtbox_Layer"
 2d_physics/layer_5="Enemy_Layer"
+2d_physics/layer_6="Soft_Collision_Layer"
 
 [physics]
 
