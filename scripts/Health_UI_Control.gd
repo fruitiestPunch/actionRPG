@@ -1,4 +1,5 @@
 extends Control
+# added as child of canvasLayer node, so that UI follows active camera
 
 onready var heart_full_textture_rect = $Heart_Full_TextureRect
 onready var heart_empty_textture_rect = $Heart_Empty_TextureRect

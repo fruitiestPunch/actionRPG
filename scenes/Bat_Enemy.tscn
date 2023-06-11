@@ -45,7 +45,7 @@ radius = 7.0
 height = 4.0
 
 [sub_resource type="CircleShape2D" id=9]
-radius = 37.3363
+radius = 56.0
 
 [sub_resource type="CircleShape2D" id=10]
 radius = 4.0
@@ -63,7 +63,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Fly_Animation"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -86,9 +86,9 @@ shape = SubResource( 8 )
 max_health = 2
 
 [node name="Player_Detection_Area" parent="." instance=ExtResource( 6 )]
-visible = false
 
 [node name="CollisionShape2D" parent="Player_Detection_Area" index="0"]
+visible = false
 modulate = Color( 1, 1, 1, 0.65098 )
 shape = SubResource( 9 )
 

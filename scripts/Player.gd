@@ -6,7 +6,6 @@ onready var animation_state = animation_tree.get("parameters/playback")
 onready var sword_hitbox = $Sword_Hitbox_Position2D/Sword_Hitbox
 onready var hurtbox = $Hurtbox
 
-
 export var ACCELERATION = 20
 export var MAX_SPEED = 150
 export var ROLL_SPEED = 190
@@ -41,7 +40,7 @@ func _physics_process(_delta):
 
 func on_death():
 	queue_free()
-	get_tree().quit()
+	#get_tree().quit()
 
 func move_state():
 	var input_vector = Vector2.ZERO
