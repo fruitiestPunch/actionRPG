@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/Bat_Enemy.gd" type="Script" id=1]
 [ext_resource path="res://scenes/share/Hurtbox.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/share/Player_Detection_Area.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/share/Hitbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/share/Soft_Collision_Area2D.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/share/Wander_Controller.tscn" type="PackedScene" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -86,9 +87,9 @@ shape = SubResource( 8 )
 max_health = 2
 
 [node name="Player_Detection_Area" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="CollisionShape2D" parent="Player_Detection_Area" index="0"]
-visible = false
 modulate = Color( 1, 1, 1, 0.65098 )
 shape = SubResource( 9 )
 
@@ -104,6 +105,8 @@ shape = SubResource( 10 )
 
 [node name="CollisionShape2D" parent="Soft_Collision_Area2D" index="0"]
 shape = SubResource( 11 )
+
+[node name="Wander_Controller" parent="." instance=ExtResource( 9 )]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]

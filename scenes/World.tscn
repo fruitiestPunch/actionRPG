@@ -595,10 +595,10 @@ position = Vector2( 44, 162 )
 position = Vector2( 306, 59 )
 
 [node name="Bat_Enemy10" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 211, 137 )
+position = Vector2( 161, 85 )
 
 [node name="Bat_Enemy3" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 232, 134 )
+position = Vector2( 170, 71 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

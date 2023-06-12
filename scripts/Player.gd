@@ -23,6 +23,7 @@ var roll_vector = Vector2.LEFT
 var stats = Player_Stats
 
 func _ready():
+	randomize()
 	stats.connect("no_health", self, "on_death")
 	animation_tree.active = true
 	sword_hitbox.knockback_vector = roll_vector
