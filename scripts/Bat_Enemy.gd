@@ -6,6 +6,7 @@ onready var animated_sprite = $AnimatedSprite
 onready var hurtbox = $Hurtbox
 onready var soft_collisions = $Soft_Collision_Area2D
 onready var wander_controller = $Wander_Controller
+onready var animation_player = $AnimationPlayer
 
 export var ACCELERATION = 20
 export var MAX_SPEED = 100
@@ -15,6 +16,7 @@ export var KNOCKBACK = 500
 # the enemy then alway overshoots the start_position
 # this might cause a jiggle in the wander state
 export var WANDER_TOLERANCE = 5
+export var INVINCIBILITY_DURATION = 0.3
 
 # scenes are no real nodes
 # preload instead of load to not eat up all ram in every frame
@@ -89,6 +91,7 @@ func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	hurtbox.create_hit_effect()
 	knockback = area.knockback_vector * KNOCKBACK
+	hurtbox.start_invincibility(INVINCIBILITY_DURATION)
 
 func _on_Stats_no_health():
 	queue_free()
@@ -97,3 +100,9 @@ func _on_Stats_no_health():
 	# gives access to target scene (here: ysort scene)
 	get_parent().add_child(enemy_death_effect_instance)
 	enemy_death_effect_instance.position = self.position
+
+func _on_Hurtbox_invincibility_ended():
+	animation_player.play("Stop_Animation")
+
+func _on_Hurtbox_invincibility_started():
+	animation_player.play("Start_Animation")

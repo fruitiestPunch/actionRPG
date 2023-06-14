@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var animation_player = $AnimationPlayer
+onready var blink_animation_player = $Blink_AnimationPlayer 
 onready var animation_tree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var sword_hitbox = $Sword_Hitbox_Position2D/Sword_Hitbox
@@ -10,12 +11,15 @@ export var ACCELERATION = 20
 export var MAX_SPEED = 150
 export var ROLL_SPEED = 190
 export var FRICTION = 50
+export var INVINCIBILITY_DURATION = 0.5
 
 enum {
 	MOVE,
 	ROLL,
 	ATTACK
 }
+
+const player_hurt_sound_scene = preload("res://scenes/Player_Hurt_AudioStreamPlayer.tscn")
 
 var velocity = Vector2.ZERO
 var state = MOVE
@@ -99,8 +103,17 @@ func roll_animation_finished():
 func attack_animation_finished():
 	state = MOVE
 
-func _on_Hurtbox_area_entered(_area):
+func _on_Hurtbox_area_entered(area):
 	if(not hurtbox.invincible):
-		stats.health -= 1
-		hurtbox.start_invincibility(0.5)
+		stats.health -= area.damage
+		hurtbox.start_invincibility(INVINCIBILITY_DURATION)
 		hurtbox.create_hit_effect()
+		var player_hurt_sound_instance = player_hurt_sound_scene.instance()
+		# because it is on audoplay, don't need to play() sound
+		get_tree().current_scene.add_child(player_hurt_sound_instance)
+
+func _on_Hurtbox_invincibility_started():
+	blink_animation_player.play("Start_Animation")
+
+func _on_Hurtbox_invincibility_ended():
+	blink_animation_player.play("Stop_Animation")
